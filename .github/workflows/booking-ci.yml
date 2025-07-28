@@ -9,10 +9,6 @@ jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./booking-service
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
