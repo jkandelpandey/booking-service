@@ -1,5 +1,11 @@
+import sys
+import os
 import pytest
-from booking_service import app  # ensure booking_service.py defines `app`
+
+# Add parent directory to sys.path so 'app' can be imported
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from app import app  # Importing from app.py directly
 
 @pytest.fixture
 def client():
