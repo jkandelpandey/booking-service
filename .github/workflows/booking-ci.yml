@@ -15,17 +15,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'  # Add quotes around the version
-
+          python-version: '3.10'
 
       - name: Install Dependencies
         run: |
-          cd booking-service
           pip install -r requirements.txt
 
       - name: Run Tests
         run: |
-          cd booking-service
           pytest
 
       - name: Login to DockerHub
@@ -37,6 +34,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./booking-service
+          context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/booking-service:latest
